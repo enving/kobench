@@ -1,0 +1,155 @@
+# Fragenkatalog Tidewell Software (Beispielfirma, Korpus: dokumente.jsonl). Stichtag 15.10.2026.
+# Jede Musterantwort ist am Beispielkorpus belegt (tests/test_beispiel.py prüft, dass alle Quellen existieren).
+# Felder und Typen: docs/format.md.
+
+- id: q01
+  typ: fakt
+  frage: "Wie ist der Stand beim Ticket TW-101?"
+  gold: >
+    TW-101 (Routen-Export bricht bei mehr als 500 Stopps mit Timeout ab, Kunde Harbor Freight Logistics) ist In Progress,
+    Priorität High, bearbeitet von Hana Okafor. Workaround: Route in zwei Exporte teilen. Der Fix ist für Release 4.8 geplant.
+  punkte:
+    - Status In Progress
+    - Priorität High
+    - Bearbeiterin Hana Okafor
+    - Problem - Export von Routen mit mehr als 500 Stopps läuft in einen Timeout
+    - Fix für Release 4.8 geplant
+  quellen: [jira:TW-101]
+
+- id: q02
+  typ: fakt
+  frage: "In welcher Phase steht die Erweiterung bei Corvid Analytics, wie viel ist sie wert und bis wann soll sie unterschrieben sein?"
+  gold: "Corvid Analytics - Expansion (deal-2): Stage Proposal, 92.300 USD, Close-Datum 15.12.2026."
+  punkte:
+    - Stage Proposal
+    - Betrag 92.300 USD
+    - Close-Datum 15.12.2026
+  quellen: [salesforce:deal-2]
+
+- id: q03
+  typ: fakt
+  frage: "Warum haben die Patienten von Maplewood Dental Group jede Erinnerung doppelt bekommen, und seit wann ist das behoben?"
+  gold: >
+    Ursache war ein doppelter Cron-Eintrag nach dem Deploy von Version 4.6 (TW-102). Entfernt in 4.6.2,
+    erledigt am 05.09.2026.
+  punkte:
+    - Ursache doppelter Cron-Eintrag nach dem 4.6-Deploy
+    - Behoben in 4.6.2
+    - Erledigt am 05.09.2026
+  quellen: [jira:TW-102]
+
+- id: q04
+  typ: liste
+  frage: "Welche Deals sind noch offen, und wie hoch ist ihre Summe?"
+  gold: >
+    Offen sind vier Deals: Harbor Freight Logistics - Renewal (184.000 USD, Negotiation), Silverline Credit Union - Renewal
+    (131.750 USD, Prospecting), Corvid Analytics - Expansion (92.300 USD, Proposal) und Aldermere Schools Trust - Pilot
+    (19.900 USD, Qualification). Zusammen 427.950 USD.
+  punkte:
+    - Harbor Freight Logistics Renewal ist dabei
+    - Silverline Credit Union Renewal ist dabei
+    - Corvid Analytics Expansion ist dabei
+    - Aldermere Schools Trust Pilot ist dabei
+    - Summe 427.950 USD
+    - Abgeschlossene Deals (Maplewood, Northgate) sind nicht dabei
+  quellen: [salesforce:deal-0, salesforce:deal-2, salesforce:deal-4, salesforce:deal-5]
+
+- id: q05
+  typ: multihop
+  frage: "Was hält die Vertragsverlängerung bei Silverline Credit Union auf, und wie weit sind wir damit?"
+  gold: >
+    Die Verlängerung (deal-4, Prospecting, 131.750 USD, Close 20.01.2027) hängt am Security-Review: 96 von 140 Fragen
+    sind beantwortet. Offen sind Datenresidenz (muss in der EU bleiben), SAML-Single-Sign-on und der Pentest-Bericht.
+    SAML ist TW-105, In Progress, High, Hana Okafor, geschätzt 6 Arbeitstage.
+  punkte:
+    - 96 von 140 Fragen des Fragebogens beantwortet
+    - Offen Datenresidenz in der EU
+    - Offen SAML-Login (TW-105 in Arbeit, Hana Okafor)
+    - Offen Pentest-Bericht
+  quellen: [confluence:40107, jira:TW-105, salesforce:deal-4]
+
+- id: q06
+  typ: multihop
+  frage: "Was ist bei Northgate Brewing in diesem Jahr gewonnen und was verloren worden, und warum?"
+  gold: >
+    Gewonnen: der Pilot (deal-3, 28.000 USD, 02.07.2026). Verloren: die Erweiterung (deal-6, 55.000 USD, 14.08.2026),
+    an einen Wettbewerber wegen des Preises.
+  punkte:
+    - Pilot gewonnen, 28.000 USD
+    - Erweiterung verloren, 55.000 USD
+    - Grund Preis, Wettbewerber
+  quellen: [salesforce:deal-3, salesforce:deal-6, confluence:40109]
+
+- id: q07
+  typ: zeit
+  frage: "Wann erscheint Release 4.8 und was ist drin?"
+  gold: "Release 4.8 ist für den 29.10.2026 geplant und enthält den Fix für den Routen-Export (TW-101) und den SAML-Login (TW-105)."
+  punkte:
+    - Datum 29.10.2026
+    - Routen-Export-Fix (TW-101)
+    - SAML-Login (TW-105)
+  quellen: [jira:TW-110]
+
+- id: q08
+  typ: version
+  frage: "Wie viel Rabatt darf der Vertrieb allein geben, und was kostet das Business-Paket?"
+  gold: >
+    Bis 10 Prozent allein; 10 bis 20 Prozent braucht die Vertriebsleitung, darüber die Geschäftsführung. Business kostet
+    24 USD je Nutzer und Monat (gültig ab 01.09.2026). Die Kopie mit 15 Prozent und 20 USD ist ein alter Entwurf.
+  punkte:
+    - Bis 10 Prozent allein
+    - Business 24 USD je Nutzer und Monat
+    - Nennt nicht 15 Prozent oder 20 USD als aktuell
+  quellen: [confluence:40103]
+
+- id: q09
+  typ: nadel
+  frage: "Wie viele Praxen hat Maplewood Dental Group, und wann gehen die Erinnerungen raus?"
+  gold: "Maplewood Dental Group hat 9 Praxen. Erinnerungen gehen 48 Stunden und 4 Stunden vor dem Termin raus."
+  punkte:
+    - 9 Praxen
+    - 48 Stunden vor dem Termin
+    - 4 Stunden vor dem Termin
+  quellen: [confluence:40108]
+
+- id: q10
+  typ: unbeantwortbar
+  frage: "Wie viele Mitarbeiter hat Tidewell Software?"
+  gold: "Dazu steht nichts in den Daten (das Organigramm liegt nur als Dateiname vor, ohne Inhalt)."
+  punkte:
+    - Sagt klar, dass die Information fehlt
+    - Nennt keine erfundene Zahl
+  quellen: []
+
+- id: q11
+  typ: unbeantwortbar
+  frage: "Welche Telefonnummer hat Elena Brandt von Harbor Freight Logistics?"
+  gold: "Dazu steht nichts in den Daten. Bekannt ist nur, dass Elena Brandt COO und Entscheiderin ist."
+  punkte:
+    - Sagt klar, dass die Telefonnummer fehlt
+    - Nennt keine erfundene Nummer
+  quellen: []
+
+- id: q12
+  typ: rechte
+  nutzer: gast
+  frage: "Wie viel Umsatz steckt insgesamt in den offenen Deals?"
+  gold: "Dazu habe ich keine Informationen (die Deals sehen nur Nutzer mit Vertriebsrechten)."
+  hintergrund: "Mit Vertriebsrechten: vier offene Deals, zusammen 427.950 USD."
+  punkte:
+    - Sagt, dass dazu keine Informationen vorliegen
+    - Nennt keine Deal-Beträge oder Summe
+  quellen: []
+  verboten: [salesforce:deal-0, salesforce:deal-2, salesforce:deal-4, salesforce:deal-5]
+
+- id: q13
+  typ: rechte
+  nutzer: nora_finance
+  frage: "Ab welchem Betrag brauchen Erstattungen eine zweite Unterschrift?"
+  gold: "Erstattungen über 10.000 USD brauchen die Freigabe von Greta Mills und eine zweite Unterschrift des CEO."
+  punkte:
+    - Schwelle 10.000 USD
+    - Freigabe durch Greta Mills
+    - Zweite Unterschrift des CEO
+  quellen: [confluence:40102]
+  verboten: [salesforce:deal-0]

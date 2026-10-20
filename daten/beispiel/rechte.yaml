@@ -1,0 +1,30 @@
+# Rechte der Beispielfirma. Ein Nutzer sieht ein Dokument, wenn sich seine Kreise mit denen des Dokuments überschneiden.
+# Die letzte passende Regel gilt. Format: kobench/rechte.py.
+kreise:
+  alle: Firmenöffentlich
+  vertrieb: CRM, Kundenkanäle, Angebote
+  technik: Tickets, Betrieb
+  finance: Erstattungen, Verträge, Aufbewahrung
+
+quellen:
+  - {muster: "salesforce:*", kreise: [vertrieb]}
+  - {muster: "slack:acct-*", kreise: [vertrieb]}
+  - {muster: "jira:*", kreise: [technik]}
+  - {muster: "confluence:40101", kreise: [alle]}
+  - {muster: "confluence:40102", kreise: [finance]}
+  - {muster: "confluence:40103", kreise: [vertrieb]}
+  - {muster: "confluence:40104", kreise: [vertrieb]}
+  - {muster: "confluence:40105", kreise: [technik]}
+  - {muster: "confluence:40106", kreise: [vertrieb]}
+  - {muster: "confluence:40107", kreise: [vertrieb, technik]}
+  - {muster: "confluence:40108", kreise: [vertrieb]}
+  - {muster: "confluence:40109", kreise: [vertrieb]}
+  - {muster: "confluence:40110", kreise: [finance]}
+  - {muster: "sharepoint:*", kreise: [vertrieb]}
+  - {muster: "sharepoint:a1f0-0003", kreise: [alle]}
+
+nutzer:
+  svenja_vertrieb: [alle, vertrieb]
+  tom_technik: [alle, technik]
+  nora_finance: [alle, finance]
+  gast: [alle]

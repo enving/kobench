@@ -1,0 +1,18 @@
+# Geheimnisse (nie committen)
+.env
+**/.env
+!.env.example
+
+# Laufzeit
+.venv/
+__pycache__/
+*.pyc
+.cache/
+.pytest_cache/
+.DS_Store
+
+# Eigene Daten und Läufe bleiben lokal
+daten/*
+!daten/beispiel/
+ergebnisse/*
+!ergebnisse/.gitkeep
